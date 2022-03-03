@@ -1,107 +1,74 @@
 <template>
-  <div>
-    <div class="flex-grow-1"></div>
-    <section id="footer-wrap" class="footer_wrap">
-      <div class="container">
-        <div class="row row">
-          <div class="mb-4 col-md-3">
-            <div class="o-hidden text-left">
-              <div>
-                <h4 class="card-title font-weight-bold">Dexam</h4>
-                <p>
-                  Dexam is highly customizable Pure Vue JS + bootstrap 4 landing
-                  Page. Dexam is built with official Vue CLI tool and uses
-                  Bootstrap Vue .
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="mb-4 col-md-3">
-            <div class="o-hidden text-left">
-              <div class="">
-                <h4 class="card-title font-weight-bold">Other Pages</h4>
-                <div class="mb-5 lead">
-                  <ul class="list-inline">
-                    <li class="mb-3"><a href="#">Marketing</a></li>
-                    <li class="mb-3"><a href="#">Campaign</a></li>
-                    <li class="mb-3"><a href="#"> Digital Agency</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mb-4 mb-lg-0 mb-md-0 col-md-3">
-            <div class="o-hidden text-left">
-              <div>
-                <h4 class="card-title font-weight-bold">Awesome Features</h4>
-                <div class="mb-5 lead">
-                  <ul class="list-inline">
-                    <li class="mb-3">
-                      <i class="eva eva-checkmark-outline mr-2 text-warning"></i
-                      >Minimal
-                    </li>
-                    <li class="mb-3">
-                      <i class="eva eva-checkmark-outline mr-2 text-warning"></i
-                      >Intuitive
-                    </li>
-                    <li class="mb-3">
-                      <i
-                        class="eva eva-checkmark-outline mr-2 text-warning"
-                      ></i>
-                      Super Flexible
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mb-lg-0 mb-md-0 col-md-3">
-            <div class="o-hidden text-left">
-              <div>
-                <h4 class="card-title font-weight-bold">Contact Info</h4>
-                <div class="address-wrap mb-3">
-                  <ul class="list-group list-unstyled">
-                    <li>
-                      <i class="eva eva-pin-outline mr-2"></i>UI-Lib ,United
-                      Kingdom
-                    </li>
-                  </ul>
-                </div>
-                <div class="address-wrap mb-3">
-                  <ul class="list-group list-unstyled">
-                    <li>
-                      <i class="eva eva-email-outline mr-2"></i>test@yahoo.com
-                    </li>
-                  </ul>
-                </div>
-                <div class="address-wrap mb-3">
-                  <ul class="list-group list-unstyled">
-                    <li>
-                      <i class="eva eva-phone-call-outline mr-2"></i>
-                      +8801961081993
-                    </li>
-                  </ul>
-                </div>
-                <section class="social-wrap">
-                  <div class="social-btns-wrap">
-                    <a href="#" class="social-btn text-30 facebook ml-0"
-                      ><i class="eva eva-facebook"></i
-                    ></a>
-                    <a href="#" class="social-btn text-30 twitter"
-                      ><i class="eva eva-twitter"></i
-                    ></a>
-                    <a href="#" class="social-btn text-30 google"
-                      ><i class="eva eva-google"></i
-                    ></a>
-                  </div>
-                </section>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
+  <footer class="bg-light text-lg-start">
+    <div class="py-4 text-center">
+      <a
+        role="button"
+        class="btn btn-primary btn-lg m-2"
+        href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA"
+        rel="nofollow"
+        target="_blank"
+      >
+        Learn Bootstrap 5
+      </a>
+      <a
+        role="button"
+        class="btn btn-primary btn-lg m-2"
+        href="https://mdbootstrap.com/docs/standard/"
+        target="_blank"
+      >
+        Download MDB UI KIT
+      </a>
+    </div>
+
+    <hr class="m-0" />
+
+    <div class="text-center py-4 align-items-center">
+      <p>Follow Me on social media</p>
+      <a
+        href="https://www.youtube.com/channel/UC5CF7mLQZhvx8O5GODZAhdA"
+        class="btn btn-primary m-1"
+        role="button"
+        rel="nofollow"
+        target="_blank"
+      >
+        <font-awesome-icon :icon="['fab', 'youtube']"  />
+      </a>
+      <a
+        href="https://www.facebook.com/mdbootstrap"
+        class="btn btn-primary m-1"
+        role="button"
+        rel="nofollow"
+        target="_blank"
+      >
+        <font-awesome-icon :icon="['fab', 'facebook']"  />
+      </a>
+      <a
+        href="https://twitter.com/MDBootstrap"
+        class="btn btn-primary m-1"
+        role="button"
+        rel="nofollow"
+        target="_blank"
+      >
+        <font-awesome-icon :icon="['fab', 'twitter']"  />
+      </a>
+      <a
+        href="https://github.com/mdbootstrap/mdb-ui-kit"
+        class="btn btn-primary m-1"
+        role="button"
+        rel="nofollow"
+        target="_blank"
+      >
+        <font-awesome-icon :icon="['fab', 'github']"  />
+      </a>
+    </div>
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2020 Copyright:
+      <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
 </template>
 
 <script>

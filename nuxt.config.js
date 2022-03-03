@@ -29,7 +29,16 @@ export default {
   components: true,
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [],
+  buildModules: [
+    '@nuxtjs/fontawesome',
+  ],
+
+  fontawesome: {
+    icons: {
+      solid: true,
+      brands: true
+    }
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [["@nuxtjs/prismic", {
