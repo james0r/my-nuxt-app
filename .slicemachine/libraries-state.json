@@ -1,0 +1,75 @@
+{
+  "slices": {
+    "components": {
+      "braker_slice2": {
+        "library": "slices",
+        "id": "braker_slice2",
+        "name": "BrakerSlice2",
+        "description": "BrakerSlice2",
+        "model": {
+          "id": "braker_slice2",
+          "type": "SharedSlice",
+          "name": "BrakerSlice2",
+          "description": "BrakerSlice2",
+          "variations": [
+            {
+              "id": "default-slice",
+              "name": "Default slice",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "BrakerSlice2",
+              "primary": {
+                "title": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "heading1",
+                    "label": "Title",
+                    "placeholder": "This is where it all begins..."
+                  }
+                },
+                "description": {
+                  "type": "StructuredText",
+                  "config": {
+                    "single": "paragraph",
+                    "label": "Description",
+                    "placeholder": "A nice description of your product"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "mocks": {
+          "default-slice": {
+            "variation": "default-slice",
+            "name": "Default slice",
+            "slice_type": "braker_slice2",
+            "items": [],
+            "primary": {
+              "title": [
+                {
+                  "type": "heading1",
+                  "text": "Recontextualize viral technologies",
+                  "spans": []
+                }
+              ],
+              "description": [
+                {
+                  "type": "paragraph",
+                  "text": "Enim culpa et eiusmod irure cillum nisi nostrud. Sunt est commodo veniam ea veniam laboris adipisicing aliquip excepteur nostrud proident.",
+                  "spans": []
+                }
+              ]
+            }
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "isDirectory": true,
+          "extension": "vue"
+        },
+        "screenshotPaths": {}
+      }
+    }
+  }
+}
