@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <main>
+    <main class="site-main mb-5 pt-5">
       <Nuxt />
     </main>
     <Footer></Footer>
@@ -15,5 +15,17 @@
 </script>
 
 <style>
+  .navbar {
+    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%);
+  }
 
+  .site-main {
+    margin-top: 58px;
+  }
+
+  @media (max-width: 991px) {
+    .site-main {
+      margin-top: 45px;
+    }
+  }
 </style>
