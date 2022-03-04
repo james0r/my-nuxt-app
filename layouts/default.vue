@@ -1,7 +1,7 @@
 <template>
   <div>
     <Header></Header>
-    <main class="site-main mb-5 pt-5">
+    <main class="site-main mb-5 overflow-auto">
       <Nuxt />
     </main>
     <Footer></Footer>

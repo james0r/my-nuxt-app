@@ -1,37 +1,44 @@
 <template>
-  <div class="card">
-    <div
-      class="bg-image hover-overlay ripple position-relative"
-      data-mdb-ripple-color="light"
-    >
-      <prismic-image :field="bgImage" class="img-fluid" />
-      <a href="#!">
-        <div
-          class="mask"
-          style="background-color: rgba(251, 251, 251, 0.15)"
-        ></div>
-      </a>
-    </div>
+  <div class="card mb-4">
+    <a href="#!" class="card-image-wrapper bg-image">
+      <prismic-image :field="bgImage"></prismic-image>
+    </a>
     <div class="card-body">
-      <h5 class="card-title" v-text="$prismic.asText(title)"></h5>
-      <p class="card-text" v-text="excerpt"></p>
-      <a :href="`/${uid}`" class="btn btn-primary">Read</a>
+      <div class="small text-muted">
+        {{ formatDate($prismic.asDate(firstPublished)) }}
+      </div>
+      <h2 class="card-title">{{ $prismic.asText(title) }}</h2>
+      <p class="card-text">{{ excerpt }}</p>
+      <a href="#!" class="btn btn-primary">Read more →</a>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ['bgImage', 'uid', 'title', 'excerpt'],
+  props: ['bgImage', 'uid', 'title', 'excerpt', 'firstPublished'],
+  methods: {
+    formatDate(dateObj) {
+      const options = {
+        day: 'numeric',
+        month: 'long', //to display the full name of the month
+        year: 'numeric',
+      }
+
+      return dateObj.toLocaleDateString("en-US", options);
+    },
+  },
 }
 </script>
 
 <style lang="scss">
 .bg-image {
-  padding-top: 66.666%;
-  border-top-left-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
+  padding-top: 41%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   overflow: hidden;
+  position: relative;
+  min-height: 150px;
 
   img {
     position: absolute;
