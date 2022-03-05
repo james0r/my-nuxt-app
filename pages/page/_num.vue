@@ -34,7 +34,7 @@
             <hr class="my-0" />
             <ul class="pagination justify-content-center my-4">
               <li class="page-item" v-bind:class="{ disabled: isFirstPage }">
-                <a class="page-link" :to="prevPage">« Newer</a>
+                <a class="page-link" :href="prevPage">« Newer</a>
               </li>
               <li class="page-item active" aria-current="page">
                 <a class="page-link" href="#!">1</a>
@@ -46,7 +46,7 @@
               </li>
               <li class="page-item"><a class="page-link" href="#!">15</a></li>
               <li class="page-item">
-                <a class="page-link" :to="nextPage">Older »</a>
+                <a class="page-link" :href="nextPage">Older »</a>
               </li>
             </ul>
           </nav>
