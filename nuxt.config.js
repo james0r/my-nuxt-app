@@ -42,13 +42,7 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [["@nuxtjs/prismic", {
-    endpoint: smConfig.apiEndpoint || "",
-    apiOptions: {
-      routes: [{
-        type: "page",
-        path: "/:uid"
-      }]
-    }
+    endpoint: smConfig.apiEndpoint || ""
   }], ["nuxt-sm"], ['bootstrap-vue/nuxt']],
   bootstrapVue: {
     // Install the `IconsPlugin` plugin (in addition to `BootstrapVue` plugin)

@@ -34,7 +34,7 @@
             <hr class="my-0" />
             <ul class="pagination justify-content-center my-4">
               <li class="page-item" v-bind:class="{ disabled: isFirstPage }">
-                <nuxt-link class="page-link" :to="prevPage">« Newer</nuxt-link>
+                <!-- <nuxt-link class="page-link" :to="prevPage">« Newer</nuxt-link> -->
               </li>
               <li class="page-item active" aria-current="page">
                 <a class="page-link" href="#!">1</a>
@@ -46,7 +46,7 @@
               </li>
               <li class="page-item"><a class="page-link" href="#!">15</a></li>
               <li class="page-item">
-                <nuxt-link class="page-link" :to="nextPage">Older »</nuxt-link>
+                <!-- <nuxt-link class="page-link" :to="nextPage">Older »</nuxt-link> -->
               </li>
             </ul>
           </nav>
