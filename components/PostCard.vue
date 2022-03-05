@@ -64,4 +64,16 @@ export default {
     object-position: center;
   }
 }
+
+@media (min-width: 1200px) {
+  .bg-image {
+    min-height: 177px;
+  }
+}
+
+@media (max-width: 576px) {
+  .bg-image {
+    min-height: 168px;
+  }
+}
 </style>

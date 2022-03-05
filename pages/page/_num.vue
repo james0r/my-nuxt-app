@@ -8,19 +8,11 @@
       <div class="row">
         <!-- Blog entries-->
         <div class="col-lg-8">
-          <!-- Featured blog post-->
-          <PostCard
-            :bgImage="featuredPost.data.featured_image"
-            :title="featuredPost.data.title"
-            :uid="featuredPost.uid"
-            :excerpt="featuredPost.data.excerpt"
-            :firstPublished="featuredPost.first_publication_date"
-          />
           <!-- Nested row for non-featured blog posts-->
           <div class="row">
             <div class="col-lg-6">
               <PostCard
-                v-for="(post) in firstColPosts"
+                v-for="post in firstColPosts"
                 :key="post.uid"
                 :bgImage="post.data.featured_image"
                 :firstPublished="post.first_publication_date"
@@ -31,7 +23,7 @@
             </div>
             <div class="col-lg-6">
               <PostCard
-                v-for="(post) in secondColPosts"
+                v-for="post in secondColPosts"
                 :key="post.uid"
                 :firstPublished="post.first_publication_date"
                 :bgImage="post.data.featured_image"
@@ -44,9 +36,9 @@
           <!-- Pagination-->
           <nav aria-label="Pagination">
             <hr class="my-0" />
-           <ul class="pagination justify-content-center my-4">
-              <li class="page-item disabled">
-                <a tabindex="-1" class="page-link">« Newer</a>
+            <ul class="pagination justify-content-center my-4">
+              <li class="page-item" v-bind:class="{ disabled: isFirstPage }">
+                <nuxt-link class="page-link" :to="prevPage">« Newer</nuxt-link>
               </li>
               <li class="page-item active" aria-current="page">
                 <a class="page-link" href="#!">1</a>
@@ -58,7 +50,7 @@
               </li>
               <li class="page-item"><a class="page-link" href="#!">15</a></li>
               <li class="page-item">
-                <nuxt-link class="page-link" to="/page/2">Older »</nuxt-link>
+                <nuxt-link class="page-link" :to="nextPage">Older »</nuxt-link>
               </li>
             </ul>
           </nav>
@@ -136,8 +128,8 @@ export default {
       $prismic.predicates.at('document.type', 'post'),
       {
         orderings: '[document.first_publication_date]',
-        page: 1,
-        pageSize: 7
+        page: +params.num == 2 ? 1 : params.num,
+        pageSize: +params.num == 2 ? 16 : 8,
       }
     )
     if (document) {
@@ -151,18 +143,55 @@ export default {
       return this.posts[0]
     },
     firstColPosts() {
-      return this.posts.filter((post, index) => {
-        return (index % 2 != 0 && index != 0)  
-      })
+      if (this.isSecondPage) {
+        return this.posts
+          .filter((post, index) => {
+            if (index > 6) {
+              return index % 2 != 0
+            } else {
+              return false
+            }
+          })
+      } else {
+        return this.posts
+          .filter((post, index) => {
+            return index % 2 == 0
+          })
+      }
     },
     secondColPosts() {
-      return this.posts.filter((post, index) => {
-        return (index % 2 == 0 && index != 0)
-      })
+      if (this.isSecondPage) {
+        return this.posts
+          .filter((post, index) => {
+            if (index > 6) {
+              return index % 2 == 0
+            } else {
+              return false
+            }
+          })
+      } else {
+        return this.posts
+          .filter((post, index) => {
+            return index % 2 != 0
+          })
+      }
     },
-    currentPage() {
-      return $route.params.page
-    }
+    isFirstPage() {
+      return +this.$route.params.num == 1
+    },
+    isSecondPage() {
+      return +this.$route.params.num == 2
+    },
+    prevPage() {
+      if (this.$route.params.num === '2') return '/'
+      return '/page/' + (+this.$route.params.num - 1)
+    },
+    nextPage() {
+      return '/page/' + (+this.$route.params.num + 1)
+    },
+    start() {
+      return (+this.$route.params.num - 1) * 8 + 1
+    },
   },
 }
 </script>
