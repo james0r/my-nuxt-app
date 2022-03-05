@@ -156,9 +156,6 @@ export default {
       return this.posts.filter((post, index) => {
         return (index % 2 != 0)
       })
-    },
-    currentPage() {
-      return $route.params.page
     }
   },
 }

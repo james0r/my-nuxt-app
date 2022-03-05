@@ -46,7 +46,7 @@
               </li>
               <li class="page-item"><a class="page-link" href="#!">15</a></li>
               <li class="page-item">
-                <a class="page-link" :href="nextPage">Older »</a>
+                <a class="page-link" :href="'/page/' + nextPage">Older »</a>
               </li>
             </ul>
           </nav>
@@ -129,7 +129,7 @@ export default {
       }
     )
     if (document) {
-      return { posts: document.results }
+      return { posts: document.results, totalPages: document.total_pages }
     } else {
       error({ statusCode: 404, message: 'Page not found' })
     }
@@ -148,15 +148,17 @@ export default {
     isFirstPage() {
       return +this.$route.params.num == 1
     },
-    isSecondPage() {
-      return +this.$route.params.num == 2
-    },
     prevPage() {
-      if (this.$route.params.num === '2') return '/'
+      if (this.$route.params.num == 2) return '/'
       return '/page/' + (+this.$route.params.num - 1)
     },
+    currentPage() {
+      return +this.$route.params.num || 1;
+    },
     nextPage() {
-      return '/page/' + (+this.$route.params.num + 1)
+      return this.currentPage < this.totalPages
+        ? this.currentPage + 1
+        : this.totalPages;
     },
     start() {
       return (+this.$route.params.num - 1) * 8

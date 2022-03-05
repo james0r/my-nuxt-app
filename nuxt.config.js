@@ -48,9 +48,6 @@ export default {
     // Install the `IconsPlugin` plugin (in addition to `BootstrapVue` plugin)
     icons: false
   },
-  generate: {
-    fallback: true
-  },
   build: {
     transpile: ["vue-slicezone", "nuxt-sm"],
     babel: {
