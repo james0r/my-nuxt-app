@@ -58,6 +58,9 @@ export default {
     fallback: true
   },
   build: {
-    transpile: ["vue-slicezone", "nuxt-sm"]
+    transpile: ["vue-slicezone", "nuxt-sm"],
+    babel: {
+      compact: true
+    }
   },
 }
