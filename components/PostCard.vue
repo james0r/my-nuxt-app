@@ -1,7 +1,7 @@
 <template>
   <div class="card mb-4">
     <a href="#!" class="card-image-wrapper bg-image">
-      <prismic-image :field="bgImage"></prismic-image>
+      <prismic-image :field="bgImage['non-featured'] ? bgImage['non-featured'] : bgImage"></prismic-image>
     </a>
     <div class="card-body">
       <div class="small text-muted">

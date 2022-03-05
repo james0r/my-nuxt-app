@@ -1,10 +1,6 @@
 <template>
   <div>
-    <PageTitle
-      title="Welcome to My-Nuxt-Prismic Blog"
-      subtitle="A demo of Nuxt.js leveraging many Prismic features."
-    />
-    <div class="container">
+    <div class="container mt-5">
       <div class="row">
         <!-- Blog entries-->
         <div class="col-lg-8">
@@ -128,8 +124,8 @@ export default {
       $prismic.predicates.at('document.type', 'post'),
       {
         orderings: '[document.first_publication_date]',
-        page: +params.num == 2 ? 1 : params.num,
-        pageSize: +params.num == 2 ? 16 : 8,
+        page: +params.num,
+        pageSize: 8,
       }
     )
     if (document) {
@@ -139,42 +135,15 @@ export default {
     }
   },
   computed: {
-    featuredPost() {
-      return this.posts[0]
-    },
     firstColPosts() {
-      if (this.isSecondPage) {
-        return this.posts
-          .filter((post, index) => {
-            if (index > 6) {
-              return index % 2 != 0
-            } else {
-              return false
-            }
-          })
-      } else {
-        return this.posts
-          .filter((post, index) => {
-            return index % 2 == 0
-          })
-      }
+      return this.posts.filter((post, index) => {
+        return index % 2 == 0
+      })
     },
     secondColPosts() {
-      if (this.isSecondPage) {
-        return this.posts
-          .filter((post, index) => {
-            if (index > 6) {
-              return index % 2 == 0
-            } else {
-              return false
-            }
-          })
-      } else {
-        return this.posts
-          .filter((post, index) => {
-            return index % 2 != 0
-          })
-      }
+      return this.posts.filter((post, index) => {
+        return index % 2 != 0
+      })
     },
     isFirstPage() {
       return +this.$route.params.num == 1
@@ -190,7 +159,7 @@ export default {
       return '/page/' + (+this.$route.params.num + 1)
     },
     start() {
-      return (+this.$route.params.num - 1) * 8 + 1
+      return (+this.$route.params.num - 1) * 8
     },
   },
 }

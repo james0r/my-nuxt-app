@@ -9,13 +9,13 @@
         <!-- Blog entries-->
         <div class="col-lg-8">
           <!-- Featured blog post-->
-          <PostCard
+          <!-- <PostCard
             :bgImage="featuredPost.data.featured_image"
             :title="featuredPost.data.title"
             :uid="featuredPost.uid"
             :excerpt="featuredPost.data.excerpt"
             :firstPublished="featuredPost.first_publication_date"
-          />
+          /> -->
           <!-- Nested row for non-featured blog posts-->
           <div class="row">
             <div class="col-lg-6">
@@ -137,7 +137,7 @@ export default {
       {
         orderings: '[document.first_publication_date]',
         page: 1,
-        pageSize: 7
+        pageSize: 8
       }
     )
     if (document) {
@@ -147,17 +147,14 @@ export default {
     }
   },
   computed: {
-    featuredPost() {
-      return this.posts[0]
-    },
     firstColPosts() {
       return this.posts.filter((post, index) => {
-        return (index % 2 != 0 && index != 0)  
+        return (index % 2 == 0)  
       })
     },
     secondColPosts() {
       return this.posts.filter((post, index) => {
-        return (index % 2 == 0 && index != 0)
+        return (index % 2 != 0)
       })
     },
     currentPage() {
