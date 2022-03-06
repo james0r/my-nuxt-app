@@ -3,7 +3,6 @@ import smConfig from "./sm.json";
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'my-nuxt-app',
@@ -18,12 +17,14 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
-
+  css: [
+    '@/assets/scss/custom.scss'
+  ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    {src: '~/plugins/formatDate.js'}
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -31,18 +32,25 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     '@nuxtjs/fontawesome',
+    '@nuxtjs/style-resources'
   ],
-
   fontawesome: {
     icons: {
       solid: true,
       brands: true
     }
   },
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [["@nuxtjs/prismic", {
-    endpoint: smConfig.apiEndpoint || ""
+    endpoint: smConfig.apiEndpoint || "",
+    apiOptions: {
+      routes: [
+        {
+          type: 'post',
+          path: '/:uid',
+        }
+      ]
+    }
   }], ["nuxt-sm"], ['bootstrap-vue/nuxt']],
   bootstrapVue: {
     // Install the `IconsPlugin` plugin (in addition to `BootstrapVue` plugin)

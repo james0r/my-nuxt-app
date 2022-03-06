@@ -1,15 +1,15 @@
 <template>
   <div class="card mb-4">
-    <a href="#!" class="card-image-wrapper bg-image">
+    <a :href="uid" class="card-image-wrapper bg-image">
       <prismic-image :field="bgImage['non-featured'] ? bgImage['non-featured'] : bgImage"></prismic-image>
     </a>
     <div class="card-body">
       <div class="small text-muted">
-        {{ formatDate($prismic.asDate(firstPublished)) }}
+        {{ this.$formatDate($prismic.asDate(firstPublished)) }}
       </div>
       <h2 class="card-title">{{ $prismic.asText(title) }}</h2>
       <p class="card-text">{{ excerpt }}</p>
-      <a href="#!" class="btn btn-primary">Read more →</a>
+      <a :href="uid" class="btn btn-primary">Read more →</a>
     </div>
   </div>
 </template>
@@ -18,16 +18,11 @@
 export default {
   props: ['bgImage', 'uid', 'title', 'excerpt', 'firstPublished'],
   methods: {
-    formatDate(dateObj) {
-      const options = {
-        day: 'numeric',
-        month: 'long', //to display the full name of the month
-        year: 'numeric',
-      }
 
-      return dateObj.toLocaleDateString("en-US", options);
-    },
   },
+  mounted() {
+
+  }
 }
 </script>
 

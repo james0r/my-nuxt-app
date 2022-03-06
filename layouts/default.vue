@@ -9,23 +9,24 @@
 </template>
 
 <script>
-  export default {
-    name: 'default'
-  }
+export default {
+  name: 'default',
+}
 </script>
 
-<style>
-  .navbar {
-    box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%);
-  }
+<style lang="scss">
+.navbar {
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%);
+}
 
+.site-main {
+  margin-top: 58px;
+}
+
+@media (max-width: 991px) {
   .site-main {
-    margin-top: 58px;
+    margin-top: 45px;
   }
+}
 
-  @media (max-width: 991px) {
-    .site-main {
-      margin-top: 45px;
-    }
-  }
 </style>
