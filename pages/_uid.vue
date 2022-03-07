@@ -17,19 +17,28 @@
                 {{
                   this.$formatDate($prismic.asDate(post.first_publication_date))
                 }}
-                by <prismic-link :field="post.data.author.data.author_website">{{ post.data.author.data.full_name }}</prismic-link>
+                by
+                <prismic-link :field="post.data.author.data.author_website">{{
+                  post.data.author.data.full_name
+                }}</prismic-link>
               </div>
-              <!-- Post categories-->
+              <!-- Post tags-->
               <a
-                class="badge bg-secondary text-decoration-none link-light"
-                href="#!"
-                >Web Design</a
-              >
-              <a
-                class="badge bg-secondary text-decoration-none link-light"
-                href="#!"
-                >Freebies</a
-              >
+                v-for="(tag, index) in tags"
+                :key="index"
+                :data-tag="tag.uid"
+                v-text="tag.name"
+                class="
+                  badge
+                  bg-secondary
+                  text-decoration-none
+                  link-light
+                  text-white
+                  mr-2
+                  px-2
+                "
+                :href="`/tag/${tag.uid}`"
+              ></a>
             </header>
             <!-- Preview image figure-->
             <figure class="featured-image-wrapper mb-4">
@@ -186,10 +195,24 @@
 
 <script>
 export default {
+  head() {
+    return {
+      title: `${this.$prismic.asText(this.post.data.title)} - My-Nuxt-Prismic`,
+    }
+  },
   async asyncData({ $prismic, params, error }) {
     const document = await $prismic.api.query(
       $prismic.predicates.at('my.post.uid', params.uid),
-      { fetchLinks: ['author.full_name', 'author.author_website'] }
+      {
+        fetchLinks: [
+          'author.full_name',
+          'author.author_website',
+          'tag.uid',
+          'tag.name',
+          'category.uid',
+          'category.name',
+        ],
+      }
     )
     if (document) {
       return { post: document.results[0] }
@@ -197,6 +220,18 @@ export default {
       error({ statusCode: 404, message: 'Page not found' })
     }
   },
+  computed: {
+    tags() {
+      return this.post.data.tags.map((tag) => {
+        return tag.tag.data
+      })
+    },
+    categories() {
+      return this.post.data.categories.map((category) => {
+        return category.category.data
+      })
+    }
+  }
 }
 </script>
 
