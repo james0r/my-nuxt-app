@@ -7,7 +7,7 @@
           <form action="/search">
             <input
               type="search"
-              name="search"
+              name="s"
               id="search"
               placeholder="Search"
               class="form-control"

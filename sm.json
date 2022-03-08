@@ -1,5 +1,7 @@
 {
   "apiEndpoint": "https://my-nuxt-app.prismic.io/api/v2",
+  "searchEndpoint": "https://my-nuxt-app.prismic.io/api/v2/documents/search",
+  "masterRef": "YiamFBIAACoAGdK7",
   "libraries": [
     "@/slices"
   ],

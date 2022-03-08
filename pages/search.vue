@@ -1,18 +1,18 @@
 <template>
     <div>
     <PageTitle
-      :title="`Posts matching search term: ${searchterm}`"
+      :title="`Posts matching search term: ${$route.query.s}`"
       subtitle="Posts are ordered by publication date"
     />
     <div class="container mt-5">
       <div class="posts-container mx-auto px-3 py-5">
         <ul class="list mb-5">
           <li
-            v-for="post in result"
+            v-for="post in posts"
             :key="post.id"
           >
             <span>{{ $formatDate($prismic.asDate(post.first_publication_date)) }}</span>
-            <a :href="post.url"
+            <a :href="`/${post.uid}`"
               >{{ $prismic.asText(post.data.title) }}</a
             >
           </li>
@@ -23,27 +23,31 @@
 </template>
 
 <script>
+import smConfig from '../sm.json'
+
 export default {
-  async asyncData({ $prismic, error, query }) {
-    try {
-      // Query for keyword
-      const searchresult = await $prismic.api.query(
-        [
-          $prismic.predicates.at('document.type', 'post'),
-          $prismic.predicates.fulltext('document', query.search)
-        ],
-        { orderings: '[document.first_publication_date desc]'}
-      )
- 
-      // Returns data to be used in template
-      return {
-        result: searchresult.results,
-        searchterm: query.search
-      }
-    } catch (e) {
-      // Returns error page
-      error({ statusCode: 404, message: 'Page not found' })
+  data() {
+    return {
+      posts: {}
     }
+  },
+  mounted() {
+    const queryPredicates = [
+      'q=[[at(document.type,"post")]]',
+      `q=[[fulltext(document, "${this.$route.query.s}")]]`
+    ]
+
+    fetch(
+      `${smConfig.searchEndpoint}?ref=${smConfig.masterRef}&${queryPredicates.join('&')}`,
+      {
+        method: 'GET',
+        mode: 'cors',
+      }
+    )
+      .then((response) => response.json())
+      .then((json) => {
+        this.posts = json.results
+      })
   },
 }
 </script>
