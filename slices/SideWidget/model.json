@@ -1,22 +1,23 @@
 {
-  "id": "braker_slice2",
+  "id": "side_widget",
   "type": "SharedSlice",
-  "name": "BrakerSlice2",
-  "description": "BrakerSlice2",
+  "name": "SideWidget",
+  "description": "Side Widget",
   "variations": [
     {
-      "id": "default-slice",
-      "name": "Default slice",
+      "id": "default",
+      "name": "Default Slice",
       "docURL": "...",
       "version": "sktwi1xtmkfgx8626",
-      "description": "BrakerSlice2",
+      "description": "Side Widget",
       "primary": {
         "title": {
           "type": "StructuredText",
           "config": {
-            "single": "heading1",
             "label": "Title",
-            "placeholder": "This is where it all begins..."
+            "placeholder": "This is where it all begins...",
+            "allowTargetBlank": true,
+            "single": "paragraph"
           }
         },
         "description": {
@@ -27,7 +28,8 @@
             "placeholder": "A nice description of your product"
           }
         }
-      }
+      },
+      "items": {}
     }
   ]
 }

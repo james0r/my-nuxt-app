@@ -1,0 +1,24 @@
+[
+  {
+    "variation": "default",
+    "name": "Default Slice",
+    "slice_type": "side_widget",
+    "items": [],
+    "primary": {
+      "title": [
+        {
+          "type": "paragraph",
+          "text": "Elit aute cillum reprehenderit sint veniam incididunt.",
+          "spans": []
+        }
+      ],
+      "description": [
+        {
+          "type": "paragraph",
+          "text": "Sunt irure officia excepteur voluptate proident consectetur incididunt laborum pariatur.",
+          "spans": []
+        }
+      ]
+    }
+  }
+]

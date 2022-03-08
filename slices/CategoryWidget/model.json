@@ -1,0 +1,17 @@
+{
+  "id": "category_widget",
+  "type": "SharedSlice",
+  "name": "CategoryWidget",
+  "description": "Category Widget",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default Slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Category Widget",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

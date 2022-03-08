@@ -1,5 +1,26 @@
 {
   "slices": {
-    "BrakerSlice2": {}
+    "CategoryWidget": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "SearchWidget": {
+      "default": {
+        "primary": {}
+      }
+    },
+    "SideWidget": {
+      "default": {
+        "primary": {
+          "title": {
+            "config": {
+              "patternType": "PARAGRAPH",
+              "blocks": 1
+            }
+          }
+        }
+      }
+    }
   }
 }

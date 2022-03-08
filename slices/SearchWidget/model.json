@@ -1,0 +1,17 @@
+{
+  "id": "search_widget",
+  "type": "SharedSlice",
+  "name": "SearchWidget",
+  "description": "Search Widget",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default Slice",
+      "docURL": "...",
+      "version": "sktwi1xtmkfgx8626",
+      "description": "Search Widget",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

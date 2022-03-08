@@ -23,22 +23,55 @@
                 }}</prismic-link>
               </div>
               <!-- Post tags-->
-              <a
-                v-for="(tag, index) in tags"
-                :key="index"
-                :data-tag="tag.uid"
-                v-text="tag.name"
-                class="
-                  badge
-                  bg-secondary
-                  text-decoration-none
-                  link-light
-                  text-white
-                  mr-2
-                  px-2
-                "
-                :href="`/tag/${tag.uid}`"
-              ></a>
+              <div class="tags-row">
+                <span>Tags:</span>
+                <ul>
+                  <li
+                    v-for="(tag, index) in tags"
+                    :key="index"
+                    :data-tag="tag.uid"
+                  >
+                    <a
+                      v-text="tag.name"
+                      class="
+                        badge
+                        bg-secondary
+                        text-decoration-none
+                        link-light
+                        text-white
+                        mr-2
+                        px-2
+                      "
+                      :href="`/tag/${tag.uid}`"
+                    ></a>
+                  </li>
+                </ul>
+              </div>
+              <!-- Post categories-->
+              <div class="categories-row">
+                <span>Categories: </span>
+                <ul>
+                  <li
+                    v-for="(cat, index) in categories"
+                    :key="index"
+                    :data-category="cat.uid"
+                  >
+                    <a
+                      v-text="cat.name"
+                      class="
+                        badge
+                        bg-secondary
+                        text-decoration-none
+                        link-light
+                        text-white
+                        mr-2
+                        px-2
+                      "
+                      :href="`/category/${cat.uid}`"
+                    ></a>
+                  </li>
+                </ul>
+              </div>
             </header>
             <!-- Preview image figure-->
             <figure class="featured-image-wrapper mb-4">
@@ -135,58 +168,8 @@
         </div>
         <!-- Side widgets-->
         <div class="col-lg-4">
-          <!-- Search widget-->
-          <div class="card mb-4">
-            <div class="card-header">Search</div>
-            <div class="card-body">
-              <div class="input-group">
-                <input
-                  class="form-control"
-                  type="text"
-                  placeholder="Enter search term..."
-                  aria-label="Enter search term..."
-                  aria-describedby="button-search"
-                />
-                <button
-                  class="btn btn-primary"
-                  id="button-search"
-                  type="button"
-                >
-                  Go!
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Categories widget-->
-          <div class="card mb-4">
-            <div class="card-header">Categories</div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#!">Web Design</a></li>
-                    <li><a href="#!">HTML</a></li>
-                    <li><a href="#!">Freebies</a></li>
-                  </ul>
-                </div>
-                <div class="col-sm-6">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#!">JavaScript</a></li>
-                    <li><a href="#!">CSS</a></li>
-                    <li><a href="#!">Tutorials</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- Side widget-->
-          <div class="card mb-4">
-            <div class="card-header">Side Widget</div>
-            <div class="card-body">
-              You can put anything you want inside of these side widgets. They
-              are easy to use, and feature the Bootstrap 5 card component!
-            </div>
-          </div>
+          <h2>Prismic Slices</h2>
+          <slice-zone type="blog_single" uid="blog-single" />
         </div>
       </div>
     </div>
@@ -194,11 +177,16 @@
 </template>
 
 <script>
+import SliceZone from 'vue-slicezone'
+
 export default {
   head() {
     return {
       title: `${this.$prismic.asText(this.post.data.title)} - My-Nuxt-Prismic`,
     }
+  },
+  components: {
+    SliceZone,
   },
   async asyncData({ $prismic, params, error }) {
     const document = await $prismic.api.query(
@@ -230,8 +218,8 @@ export default {
       return this.post.data.categories.map((category) => {
         return category.category.data
       })
-    }
-  }
+    },
+  },
 }
 </script>
 
@@ -239,6 +227,19 @@ export default {
 .featured-image-wrapper {
   padding-top: 44%;
   position: relative;
+}
+
+.categories-row,
+.tags-row {
+  margin-bottom: .5rem;
+
+  ul {
+    display: inline-flex;
+    padding-left: 0px;
+    list-style: none;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+  }
 }
 
 @media (max-width: 576px) {

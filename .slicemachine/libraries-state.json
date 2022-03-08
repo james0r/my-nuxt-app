@@ -1,30 +1,119 @@
 {
   "slices": {
     "components": {
-      "braker_slice2": {
+      "category_widget": {
         "library": "slices",
-        "id": "braker_slice2",
-        "name": "BrakerSlice2",
-        "description": "BrakerSlice2",
+        "id": "category_widget",
+        "name": "CategoryWidget",
+        "description": "Category Widget",
         "model": {
-          "id": "braker_slice2",
+          "id": "category_widget",
           "type": "SharedSlice",
-          "name": "BrakerSlice2",
-          "description": "BrakerSlice2",
+          "name": "CategoryWidget",
+          "description": "Category Widget",
           "variations": [
             {
-              "id": "default-slice",
-              "name": "Default slice",
+              "id": "default",
+              "name": "Default Slice",
               "docURL": "...",
               "version": "sktwi1xtmkfgx8626",
-              "description": "BrakerSlice2",
+              "description": "Category Widget",
+              "primary": {},
+              "items": {}
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default Slice",
+            "slice_type": "category_widget",
+            "items": [],
+            "primary": {}
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "isDirectory": true,
+          "extension": "vue"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/Users/jamesauble/Projects/Nuxt/my-nuxt-app/.slicemachine/assets/slices/CategoryWidget/default/preview.png",
+            "width": 800,
+            "height": 128
+          }
+        }
+      },
+      "search_widget": {
+        "library": "slices",
+        "id": "search_widget",
+        "name": "SearchWidget",
+        "description": "Search Widget",
+        "model": {
+          "id": "search_widget",
+          "type": "SharedSlice",
+          "name": "SearchWidget",
+          "description": "Search Widget",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default Slice",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Search Widget",
+              "primary": {},
+              "items": {}
+            }
+          ]
+        },
+        "mocks": {
+          "default": {
+            "variation": "default",
+            "name": "Default Slice",
+            "slice_type": "search_widget",
+            "items": [],
+            "primary": {}
+          }
+        },
+        "meta": {
+          "fileName": "index",
+          "isDirectory": true,
+          "extension": "vue"
+        },
+        "screenshotPaths": {
+          "default": {
+            "path": "/Users/jamesauble/Projects/Nuxt/my-nuxt-app/.slicemachine/assets/slices/SearchWidget/default/preview.png",
+            "width": 800,
+            "height": 128
+          }
+        }
+      },
+      "side_widget": {
+        "library": "slices",
+        "id": "side_widget",
+        "name": "SideWidget",
+        "description": "Side Widget",
+        "model": {
+          "id": "side_widget",
+          "type": "SharedSlice",
+          "name": "SideWidget",
+          "description": "Side Widget",
+          "variations": [
+            {
+              "id": "default",
+              "name": "Default Slice",
+              "docURL": "...",
+              "version": "sktwi1xtmkfgx8626",
+              "description": "Side Widget",
               "primary": {
                 "title": {
                   "type": "StructuredText",
                   "config": {
-                    "single": "heading1",
                     "label": "Title",
-                    "placeholder": "This is where it all begins..."
+                    "placeholder": "This is where it all begins...",
+                    "allowTargetBlank": true,
+                    "single": "paragraph"
                   }
                 },
                 "description": {
@@ -35,28 +124,29 @@
                     "placeholder": "A nice description of your product"
                   }
                 }
-              }
+              },
+              "items": {}
             }
           ]
         },
         "mocks": {
-          "default-slice": {
-            "variation": "default-slice",
-            "name": "Default slice",
-            "slice_type": "braker_slice2",
+          "default": {
+            "variation": "default",
+            "name": "Default Slice",
+            "slice_type": "side_widget",
             "items": [],
             "primary": {
               "title": [
                 {
-                  "type": "heading1",
-                  "text": "Recontextualize viral technologies",
+                  "type": "paragraph",
+                  "text": "Elit aute cillum reprehenderit sint veniam incididunt.",
                   "spans": []
                 }
               ],
               "description": [
                 {
                   "type": "paragraph",
-                  "text": "Enim culpa et eiusmod irure cillum nisi nostrud. Sunt est commodo veniam ea veniam laboris adipisicing aliquip excepteur nostrud proident.",
+                  "text": "Sunt irure officia excepteur voluptate proident consectetur incididunt laborum pariatur.",
                   "spans": []
                 }
               ]
@@ -68,7 +158,13 @@
           "isDirectory": true,
           "extension": "vue"
         },
-        "screenshotPaths": {}
+        "screenshotPaths": {
+          "default": {
+            "path": "/Users/jamesauble/Projects/Nuxt/my-nuxt-app/.slicemachine/assets/slices/SideWidget/default/preview.png",
+            "width": 800,
+            "height": 147
+          }
+        }
       }
     }
   }
