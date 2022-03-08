@@ -4,16 +4,18 @@
       <div class="card-header">Search Widget</div>
       <div class="card-body">
         <div class="input-group">
-          <input
-            class="form-control"
-            type="text"
-            placeholder="Enter search term..."
-            aria-label="Enter search term..."
-            aria-describedby="button-search"
-          />
-          <button class="btn btn-primary" id="button-search" type="button">
-            Go!
-          </button>
+          <form action="/search">
+            <input
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Search"
+              class="form-control"
+            /> 
+            <button
+              type="submit"
+            >Go!</button>
+          </form>
         </div>
       </div>
     </div>
@@ -23,6 +25,10 @@
 <script>
 export default {
   name: 'SearchWidget',
+  data() {
+    return {
+    }
+  },
   props: {
     slice: {
       type: Object,
@@ -35,7 +41,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .section {
   position: relative;
   background: #f7f7f7;
@@ -48,5 +54,13 @@ a {
 }
 .title {
   margin-bottom: 2em;
+} 
+
+form {
+  display: flex;
+
+  button {
+    border: none;
+  }
 }
 </style>
